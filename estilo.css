@@ -1,0 +1,322 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo com a imagem de fundo */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('./imagens/background.png') no-repeat center center fixed;
+    background-size: cover;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0;
+    overflow-x: hidden; /* Evita rolagem lateral */
+}
+
+/* Header com a logo */
+.header {
+    width: 100%;
+    background: rgba(0, 123, 255, 0.1); /* Fundo azul translúcido */
+    backdrop-filter: blur(10px); /* Desfoque */
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+/* Contêiner principal com transparência e desfoque */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 90%;
+    max-width: 1200px;
+    background: rgba(255, 255, 255, 0.1); /* Fundo branco translúcido */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); /* Efeito de desfoque */
+    justify-content: space-between;
+    align-items: center; /* Centraliza horizontalmente */
+    overflow: visible;
+}
+
+/* Títulos */
+h1, h2 {
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Sombra para legibilidade */
+}
+
+h1 {
+    font-size: 2.4em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+h2 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Área principal com inputs e relógio */
+.main-area {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
+    width: 100%;
+    max-width: 1000px;
+    overflow: auto;
+}
+
+/* Seção de inputs */
+.input-section {
+    flex: 1;
+    min-width: 250px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: white;
+}
+
+input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1em;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    transition: all 0.3s;
+    background-color: rgba(255, 255, 255, 0.8); /* Transparência no input */
+    color: #333;
+}
+
+input:focus {
+    border-color: #5151E5;
+    box-shadow: 0 0 8px rgba(81, 81, 229, 0.3);
+}
+
+/* Botões grandes em telas maiores */
+.btn {
+    padding: 12px 20px;
+    background: linear-gradient(45deg, #72EDF2, #5151E5);
+    border: none;
+    color: white;
+    font-size: 1em;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    width: 100%; /* Ocupa toda a largura */
+    max-width: 400px; /* Largura máxima do botão */
+    margin: 10px auto; /* Centraliza o botão */
+    display: block; /* Garante que o botão seja tratado como um bloco para centralização */
+}
+
+.btn:hover {
+    background: linear-gradient(45deg, #5151E5, #72EDF2);
+    transform: scale(1.05);
+}
+
+.saiba-mais {
+    margin-top: 20px;
+    background: linear-gradient(45deg, #34d1bf, #007bff); /* Degradê verde para azul */
+}
+
+/* Botão Nova Simulação */
+.nova-simulacao {
+    margin-top: 20px;
+    background: linear-gradient(45deg, #007bff, #0056b3); /* Azul mais escuro */
+}
+
+/* Relógio */
+.clock {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border: 8px solid #5151E5;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(81, 81, 229, 0.1), rgba(81, 81, 229, 0.2));
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+    flex-shrink: 0;
+}
+
+/* Quadros do relógio */
+.frame {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 2px solid #333;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    line-height: 50px;
+    font-weight: bold;
+    font-size: 1.2em;
+    color: #5151E5;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Posição dos quadros */
+.frame1 {
+    top: 10px;
+    left: 125px;
+}
+
+.frame2 {
+    top: 125px;
+    right: 10px;
+}
+
+.frame3 {
+    bottom: 10px;
+    left: 125px;
+}
+
+.frame4 {
+    top: 125px;
+    left: 10px;
+}
+
+/* Ponteiro do relógio */
+.hand {
+    position: absolute;
+    width: 4px;
+    height: 120px;
+    background-color: #FF4C4C;
+    top: 50px;
+    left: 148px;
+    transform-origin: bottom center;
+    transform: rotate(0deg);
+    transition: transform 0.5s ease-in-out; /* Transição suave */
+    border-radius: 2px;
+}
+
+/* Tabela de Resultados */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.5s, transform 0.5s;
+}
+
+table.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+table, th, td {
+    border: 1px solid #ccc;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center;
+    font-size: 1.1em;
+    color: white;
+}
+
+/* Sucessos e falhas */
+.hit {
+    background-color: lightgreen;
+}
+
+.miss {
+    background-color: lightcoral;
+}
+
+/* Animação suave */
+@keyframes fadein {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Estilo do footer */
+.footer {
+    background-color: rgba(0, 123, 255, 0.2);
+    padding: 20px;
+    text-align: center;
+    color: white;
+    font-size: 0.85em;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+    backdrop-filter: blur(5px);
+    font-weight: 300;
+    line-height: 1.6;
+}
+
+.footer p {
+    margin-bottom: 10px;
+    font-size: 0.85em;
+    font-weight: 300;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Layout em coluna para dispositivos móveis */
+    .main-area {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    /* Remove o relógio em dispositivos móveis */
+    .clock {
+        display: none;
+    }
+
+    /* Estilo específico para o botão "Iniciar Simulação" em smartphones */
+    .btn {
+        width: 80%; /* Reduz o tamanho do botão para 80% da largura da tela */
+        max-width: 200px; /* Limite de largura máximo menor */
+        font-size: 0.9em; /* Reduz o tamanho da fonte */
+        padding: 10px 15px; /* Ajuste de padding para menor tamanho */
+        margin: 20px auto; /* Garante centralização horizontal */
+    }
+
+    /* Tabela de resultados ajustada para telas pequenas */
+    table, th, td {
+        font-size: 0.9em; /* Reduz o tamanho da fonte na tabela */
+        padding: 5px; /* Reduz o padding nas células */
+    }
+        /* Centralizar os rótulos (label) apenas em dispositivos móveis */
+    .input-group {
+        text-align: center; /* Centraliza o conteúdo do grupo de input */
+        width: 100%;
+    }
+
+    label {
+        display: block; /* Garante que o rótulo ocupe toda a largura do grupo */
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: white;
+        text-align: center; /* Centraliza o texto do rótulo */
+    }
+}

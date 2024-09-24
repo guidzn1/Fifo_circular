@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Algoritmo de Substituição de Páginas - Relógio Circular</title>
+    <link rel="stylesheet" href="estiloinfo.css">
+</head>
+<body>
+
+    <!-- Header com a logo -->
+    <header class="header">
+        <img src="./imagens/logo.png" alt="Logo do Projeto" class="logo">
+    </header>
+
+    <div class="container">
+        <article class="article">
+            <h1>Algoritmo de Substituição de Páginas - Relógio Circular</h1>
+
+            <h2>Introdução</h2>
+            <p>
+                O algoritmo de substituição de páginas do relógio, também conhecido como "FIFO Circular", é uma 
+                técnica usada para gerenciar a memória em sistemas operacionais que utilizam paginação virtual. 
+                Esse algoritmo é uma variação do algoritmo FIFO (First In, First Out), mas com uma otimização que 
+                utiliza um "ponteiro" que percorre as páginas circulando entre elas.
+            </p>
+
+            <h2>Como Funciona</h2>
+            <p>
+                No algoritmo de substituição de páginas do relógio, cada página tem um bit de "uso" associado a ela. 
+                Quando ocorre uma falta de página (page fault), o ponteiro do relógio percorre os quadros de página 
+                até encontrar uma página com o bit de uso "0", o que indica que essa página pode ser substituída.
+                Se o bit de uso de uma página for "1", o algoritmo redefine esse bit para "0" e move o ponteiro 
+                para o próximo quadro, repetindo o processo até encontrar uma página adequada para substituição.
+            </p>
+
+            <h2>Vantagens e Desvantagens</h2>
+            <p>
+                <strong>Vantagens:</strong> <br>
+                - É uma melhoria em relação ao algoritmo FIFO puro, evitando a substituição de páginas recém-usadas. <br>
+                - Fácil de implementar e entender, sendo uma boa introdução para técnicas mais complexas de gerenciamento de memória.
+            </p>
+            <p>
+                <strong>Desvantagens:</strong> <br>
+                - Não leva em conta a frequência de uso das páginas, podendo substituir páginas que serão necessárias em breve. <br>
+                - Embora seja melhor que o FIFO simples, ainda não é tão eficiente quanto algoritmos mais avançados, como o LRU (Least Recently Used).
+            </p>
+
+            <!-- Botão Voltar para a Simulação -->
+            <button id="backButton" class="btn voltar-simulacao">Voltar para a Simulação</button>
+        </article>
+    </div>
+
+    <script>
+        // Redirecionar para a página principal quando o botão for clicado
+        document.getElementById('backButton').addEventListener('click', function() {
+            window.location.href = 'index.html'; // Redireciona para a página principal
+        });
+    </script>
+
+</body>
+</html>

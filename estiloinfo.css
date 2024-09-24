@@ -1,0 +1,122 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo do corpo da página */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('./imagens/background.png') no-repeat center center fixed;
+    background-size: cover;
+    min-height: 100vh; /* Garante que a página ocupe pelo menos toda a altura da janela */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Header com a logo */
+.header {
+    width: 100%;
+    background: rgba(0, 123, 255, 0.1); /* Fundo azul translúcido */
+    backdrop-filter: blur(10px); /* Desfoque */
+    padding: 20px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.logo {
+    width: 150px;
+    height: auto;
+}
+
+/* Contêiner principal para o artigo */
+.container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px;
+    width: 80%;
+    max-width: 1000px;
+    background: rgba(255, 255, 255, 0.2); /* Fundo branco translúcido */
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px); /* Efeito de desfoque */
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/* Estilo para o artigo */
+.article {
+    padding: 30px;
+    background-color: rgba(255, 255, 255, 0.9); /* Fundo branco translúcido */
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.article h1 {
+    color: #007bff;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 2em;
+}
+
+.article h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+.article p {
+    color: #333;
+    font-size: 1.1em;
+    line-height: 1.6; /* Ajuste de altura da linha para evitar texto achatado */
+    margin-bottom: 20px;
+    text-align: justify;
+}
+/* Estilo para o botão "Voltar para a Simulação" */
+.voltar-simulacao {
+    margin-top: 30px;
+    background: linear-gradient(45deg, #007bff, #34d1bf); /* Degradê azul para verde */
+    color: white;
+    padding: 12px 20px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    width: 100%; /* Faz o botão ocupar toda a largura */
+    max-width: 300px; /* Limita a largura máxima */
+    transition: all 0.3s ease; /* Suaviza a transição */
+    display: block; /* Garante que o botão seja um bloco completo */
+    margin-left: auto;
+    margin-right: auto; /* Centraliza o botão horizontalmente */
+}
+
+.voltar-simulacao:hover {
+    background: linear-gradient(45deg, #34d1bf, #007bff); /* Inverte o degradê no hover */
+    transform: scale(1.05); /* Efeito de crescimento ao passar o mouse */
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    /* Ajustes para o container */
+    .container {
+        width: 95%; /* O container ocupa mais espaço em telas pequenas */
+        padding: 20px;
+    }
+
+    /* Centralizar os textos apenas em dispositivos móveis */
+    .article h1, .article h2, .article p {
+        text-align: center; /* Centraliza os textos de título e parágrafos */
+    }
+
+    .article p {
+        font-size: 1em; /* Reduz um pouco o tamanho da fonte para telas menores */
+        line-height: 1.8; /* Aumenta o espaçamento entre linhas para melhorar a leitura */
+        padding: 0 10px; /* Adiciona um pouco de padding para evitar que o texto fique muito apertado */
+    }
+}
