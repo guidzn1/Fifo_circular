@@ -22,7 +22,7 @@ function runClockAlgorithm() {
 
     const frames = Array(numFrames).fill(null); // Quadros de página
     const useBits = Array(numFrames).fill(0); // Bits de uso
-    let pointer = 0; // Ponteiro do relógio
+    let pointer = -1; // Ponteiro do relógio começa no índice 0
 
     let tableBody = document.getElementById('resultTable').querySelector('tbody');
     tableBody.innerHTML = ""; // Limpa resultados anteriores
@@ -54,7 +54,6 @@ function runClockAlgorithm() {
 
             frames[pointer] = page; // Substitui a página
             useBits[pointer] = 1; // Define o bit de uso para o quadro atual
-            pointer = (pointer + 1) % numFrames; // Avança o ponteiro
         }
 
         // Adiciona o resultado à tabela
@@ -63,7 +62,7 @@ function runClockAlgorithm() {
             <td>${step + 1}</td>
             <td>${page}</td>
             <td>${frames.map(f => f === null ? '-' : f).join(', ')}</td>
-            <td>${pointer}</td>
+            <td>${pointer + 1}</td> <!-- Exibe o valor do ponteiro corrigido -->
             <td class="${hit ? 'hit' : 'miss'}">${result}</td>
         `;
         tableBody.appendChild(row);
@@ -72,15 +71,14 @@ function runClockAlgorithm() {
         movePointer(pointer, numFrames);
     });
 
-    // Após a simulação, exibe o botão de nova simulação
-    showNewSimulationButton();  // Mostra o botão após a simulação
+    // Após a simulação, exibe o botão de nova simulação e esconde o botão de iniciar
+    showNewSimulationButton();  // Mostra o botão "Nova Simulação"
     document.getElementById('startButton').style.display = 'none';  // Oculta o botão "Iniciar Simulação"
 }
 
+// Função para mover o ponteiro do relógio (simulação visual)
 function movePointer(pointer, numFrames) {
     // Calcula o ângulo para o número de quadros
     const pointerAngle = (pointer * (360 / numFrames)) % 360;
     document.querySelector('.hand').style.transform = `rotate(${pointerAngle}deg)`;
 }
-
-
