@@ -22,7 +22,7 @@ function runClockAlgorithm() {
 
     const frames = Array(numFrames).fill(null); // Quadros de página
     const useBits = Array(numFrames).fill(0); // Bits de uso
-    let pointer = -1; // Ponteiro do relógio começa no índice 0
+    let pointer = 0; // Ponteiro do relógio começa no índice 0
 
     let tableBody = document.getElementById('resultTable').querySelector('tbody');
     tableBody.innerHTML = ""; // Limpa resultados anteriores
@@ -63,6 +63,7 @@ function runClockAlgorithm() {
             <td>${page}</td>
             <td>${frames.map(f => f === null ? '-' : f).join(', ')}</td>
             <td>${pointer + 1}</td> <!-- Exibe o valor do ponteiro corrigido -->
+            <td>${useBits.join(', ')}</td>
             <td class="${hit ? 'hit' : 'miss'}">${result}</td>
         `;
         tableBody.appendChild(row);
